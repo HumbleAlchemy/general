@@ -1,0 +1,13 @@
+#include<stdio.h>
+ 
+typedef struct {
+    int key;
+    int color;
+    int distance = -1;
+    int parent;
+} node;
+
+typedef struct {
+    node *head;
+};
+
