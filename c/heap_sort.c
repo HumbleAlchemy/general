@@ -84,9 +84,12 @@ void build_max_heap(heap_array *A) {
 }
 void display(heap_array A) {
 	int i =0;
-	
-	for(i =0 ; i<A.length; i++)
-		printf("e: %d\n",A.keys[i]);
+	printf("[");
+	for(i =0 ; i<A.length; i++) 
+		if(i < A.length-1) 
+            printf("%3d,",A.keys[i]);
+        else
+            printf("%3d]\n",A.keys[i]);
 	
 }
 
@@ -129,21 +132,9 @@ int main(int argc, const char *argv[])
 	for(i; i < 100 ; i++)
 		A.keys[i] = -1;
 
+	display(A); //display unsorted list
+	heapsort(&A);
 	display(A);
-	//max_heapify(&A,1);
-	//printf("after heapify\n");
-	build_max_heap(&A);
-	//heapsort(&A);
-	//display(A);
 	
-    i = heap_extract(&A);
-    printf("i: %d\n",i);
-    i = heap_extract(&A);
-    printf("i: %d\n",i);
-    i = heap_extract(&A);
-    printf("i: %d\n",i);
-	//printf("s1 : %d s2 : %d\n",arr[s1],arr[s2]);
-	//swap(arr,s1,s2);
-	//printf("s1 : %d s2 : %d\n",arr[s1],arr[s2]);
-	return 0;
+    return 0;
 }
